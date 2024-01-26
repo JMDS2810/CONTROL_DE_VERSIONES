@@ -355,7 +355,7 @@ Git es un sistema de control de versiones distribuido que permite a los desarrol
    - Git facilita la resolución de conflictos cuando dos ramas contienen cambios en las mismas líneas de código.
    - Se utilizan herramientas como `git diff` y `git merge` para resolver y fusionar cambios conflictivos.
 
-## Añadir y confirmar
+### Añadir y confirmar
 
 A continuación, se describe el proceso de trabajo con Git, centrándose en el manejo de archivos y confirmaciones en un repositorio local. Vamos a comenzar con la visualización del estado del directorio actual mediante el comando `pwd` que muestra la ubicación y `ls -la` para listar todos los elementos, incluyendo archivos ocultos. El comando `git status` se utiliza para obtener información sobre el estado del repositorio, destacando cambios no confirmados, la rama actual y la limpieza del árbol de trabajo.
 
@@ -524,7 +524,7 @@ En el contexto de Git, se refiere a la distinción entre los repositorios locale
 - La distinción entre local y remoto facilita el desarrollo colaborativo, ya que múltiples desarrolladores pueden trabajar en sus versiones locales y luego compartir y fusionar sus cambios en el repositorio remoto.
 - Los repositorios remotos permiten la sincronización y la centralización del código fuente, lo que es crucial para proyectos en los que varios desarrolladores contribuyen.
 
-### EMpujar y tirar
+### Empujar y tirar
 
 **Empujar y Tirar en Git:**
 
