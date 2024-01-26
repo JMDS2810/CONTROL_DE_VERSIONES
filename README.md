@@ -207,3 +207,116 @@ En el contexto de la línea de comandos Bash, realizar operaciones como crear, m
     # Verificar contenido del directorio "archive"
     ls -l
     ```
+### Redirección en la Línea de Comandos
+
+Se abordará el concepto de redirección en la línea de comandos de Linux, destacando los tres tipos principales: entrada estándar, salida estándar y error estándar. 
+
+## 1. Entrada Estándar:
+
+La entrada estándar representa la información que un usuario ingresa, generalmente desde el teclado. El comando `cat` se presenta como una herramienta que puede registrar esta entrada y almacenarla en un archivo. El ejemplo práctico utiliza el comando `cat`, seguido de un signo mayor que (`>`) y el nombre del archivo (`input.txt`), permitiendo la creación y almacenamiento de la entrada del usuario en un archivo de texto.
+
+```bash
+# Ejemplo de Redirección de Entrada Estándar
+cat > input.txt
+```
+
+## 2. Salida Estándar:
+
+La salida estándar es la información generada por comandos como `ls`, que por defecto se envía a la pantalla. La redirección de salida se realiza mediante el uso del signo mayor que (`>`), permitiendo que la salida se guarde en un archivo específico, como se muestra en el siguiente ejemplo:
+
+```bash
+# Ejemplo de Redirección de Salida Estándar
+ls -l > output.txt
+```
+
+## 3. Error Estándar:
+
+Cuando se producen errores, es crucial gestionar la salida de error estándar. Se utiliza el número 2 para representar el error, y se puede combinar con la salida estándar utilizando `2>&1`. El siguiente ejemplo muestra cómo manejar errores y salida estándar al mismo tiempo:
+
+```bash
+# Ejemplo de Redirección de Error Estándar y Salida Estándar
+ls /bin/usr > error_output.txt 2>&1
+```
+
+En este caso, si el directorio no existe, el mensaje de error se guarda en el archivo `error_output.txt`, proporcionando un registro detallado.
+
+La redirección es una herramienta poderosa para controlar el flujo de datos en la línea de comandos de Linux, permitiendo un manejo eficiente de la entrada, salida y errores generados por diferentes comandos. Con estos ejemplos, los usuarios pueden comprender y aplicar efectivamente los conceptos de redirección en sus tareas diarias en entornos UNIX y Linux.
+
+### Grep
+
+Grep es una herramienta poderosa en la línea de comandos de Unix y Linux que se utiliza para buscar patrones en archivos y directorios. La sigla Grep proviene de "Global Regular Expression Print". En el contexto del texto, se muestra cómo Grep se utiliza para buscar nombres en un archivo llamado `nombres.txt`.
+
+**Ejemplos de uso de Grep:**
+
+1. *Búsqueda Estándar:*
+   ```bash
+   grep Sam nombres.txt
+   ```
+   Devuelve nombres que comienzan por "Sam". Se destaca que Grep distingue entre mayúsculas y minúsculas.
+
+2. *Búsqueda sin Distinguir Mayúsculas y Minúsculas:*
+   ```bash
+   grep -i Sam nombres.txt
+   ```
+   Ignora la distinción entre mayúsculas y minúsculas, devolviendo coincidencias independientemente de la capitalización.
+
+3. *Coincidencia Exacta:*
+   ```bash
+   grep -w Sam nombres.txt
+   ```
+   Realiza una coincidencia exacta, excluyendo coincidencias parciales de "Sam".
+
+4. *Uso de Pipe para Combinar Comandos:*
+   ```bash
+   ls /bin | grep zip
+   ```
+   Combina el comando `ls` con Grep utilizando el pipe (`|`) para filtrar los archivos ejecutables que contienen la palabra "zip".
+
+Grep proporciona flexibilidad en la búsqueda de patrones en archivos y directorios, permitiendo ajustar los resultados según las necesidades. Puede utilizarse para realizar búsquedas sensibles a mayúsculas y minúsculas, coincidencias exactas, y filtrar resultados combinándolo con otros comandos mediante el uso de pipes. En resumen, Grep es una herramienta esencial para aquellos que buscan eficientemente a través de grandes conjuntos de datos en entornos de línea de comandos.
+
+## Git y GitHub 
+
+En el desarrollo web y de software, el control de versiones es esencial para hacer un seguimiento de los cambios en los proyectos. Git y GitHub son dos herramientas fundamentales en este contexto. Git es un sistema de control de versiones diseñado para rastrear cambios en archivos, inicialmente creado para abordar el desafío de gestionar las contribuciones masivas al núcleo del sistema operativo Linux. Ofrece ventajas como velocidad, rendimiento, confiabilidad y una sintaxis accesible.
+
+Por otro lado, GitHub es un servicio de alojamiento basado en la nube que facilita la gestión de repositorios de Git a través de una interfaz de usuario. Va más allá de las funciones de control de versiones de Git, proporcionando herramientas como control de acceso, solicitudes de cambios y automatización. GitHub actúa como una red social para desarrolladores, con proyectos públicos y privados, perfiles de usuarios y la capacidad de aceptar contribuciones globales.
+
+**Detalles clave sobre Git:**
+
+- Sistema de control de versiones diseñado para rastrear cambios en archivos.
+- Creado para superar los desafíos de gestionar contribuciones masivas en el núcleo de Linux.
+- Ventajas: mayor velocidad, rendimiento, confiabilidad, código abierto y sintaxis accesible.
+- Se utiliza principalmente a través de la línea de comandos.
+
+**Detalles Clave sobre GitHub:**
+
+- Servicio de alojamiento basado en la nube para gestionar repositorios de Git.
+- Incorpora funciones de control de versiones de Git y añade sus propias herramientas.
+- Funciones incluyen control de acceso, solicitudes de cambios y automatización.
+- Popular entre los desarrolladores web, actúa como una red social para proyectos.
+
+### Creación y clonación de un repositorio
+
+## Creación y Clonación de Repositorios en GitHub: Un Paso a Paso
+
+**Resumen:**
+
+El proceso de creación y clonación de un repositorio en GitHub se inicia desde el sitio web y luego se completa en la línea de comandos. Al iniciar sesión en GitHub, se utiliza la opción "Crear repositorio" para iniciar un nuevo proyecto. Se elige un nombre, una descripción y la visibilidad del repositorio (público o privado). Además, se puede inicializar el repositorio con archivos como README. Después de la creación, se presenta una URL que se utilizará para clonar el repositorio.
+
+Para clonar el repositorio en la máquina local, se copia la URL HTTPS y se utiliza el comando `git clone` en la línea de comandos. El proceso incluye la creación de un directorio local, la ejecución del comando de clonación y la verificación de la presencia del repositorio clonado en el sistema de archivos local. 
+
+**Pasos Detallados:**
+1. Iniciar sesión en GitHub y seleccionar "Crear repositorio".
+2. Ingresar el nombre del repositorio, descripción y configuración de visibilidad.
+3. Opcionalmente, inicializar el repositorio con archivos como README.
+4. Crear el repositorio y obtener la URL de clonación.
+5. Copiar la URL HTTPS para clonar el repositorio en la máquina local.
+6. En la línea de comandos, crear un directorio y usar `git clone` con la URL copiada.
+7. Verificar la presencia del repositorio clonado en el sistema de archivos local.
+
+Este proceso proporciona a los desarrolladores una manera eficiente de crear y clonar repositorios, estableciendo así la base para el trabajo colaborativo y el control de versiones.
+
+**Observaciones Finales:**
+- Se destaca la importancia del archivo README.md en el repositorio, utilizado para proporcionar documentación utilizando el formato Markdown.
+- Se menciona que cada repositorio tiene una rama principal (main), conocida como la "línea principal", fundamental en el control de versiones.
+
+Al comprender estos pasos, los desarrolladores pueden iniciar y colaborar en proyectos utilizando GitHub de manera efectiva, estableciendo un flujo de trabajo sólido en el desarrollo de software.
