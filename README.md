@@ -211,7 +211,7 @@ En el contexto de la línea de comandos Bash, realizar operaciones como crear, m
 
 Se abordará el concepto de redirección en la línea de comandos de Linux, destacando los tres tipos principales: entrada estándar, salida estándar y error estándar. 
 
-## 1. Entrada Estándar:
+ 1. Entrada Estándar:
 
 La entrada estándar representa la información que un usuario ingresa, generalmente desde el teclado. El comando `cat` se presenta como una herramienta que puede registrar esta entrada y almacenarla en un archivo. El ejemplo práctico utiliza el comando `cat`, seguido de un signo mayor que (`>`) y el nombre del archivo (`input.txt`), permitiendo la creación y almacenamiento de la entrada del usuario en un archivo de texto.
 
@@ -220,7 +220,7 @@ La entrada estándar representa la información que un usuario ingresa, generalm
 cat > input.txt
 ```
 
-## 2. Salida Estándar:
+ 2. Salida Estándar:
 
 La salida estándar es la información generada por comandos como `ls`, que por defecto se envía a la pantalla. La redirección de salida se realiza mediante el uso del signo mayor que (`>`), permitiendo que la salida se guarde en un archivo específico, como se muestra en el siguiente ejemplo:
 
@@ -229,7 +229,7 @@ La salida estándar es la información generada por comandos como `ls`, que por 
 ls -l > output.txt
 ```
 
-## 3. Error Estándar:
+ 3. Error Estándar:
 
 Cuando se producen errores, es crucial gestionar la salida de error estándar. Se utiliza el número 2 para representar el error, y se puede combinar con la salida estándar utilizando `2>&1`. El siguiente ejemplo muestra cómo manejar errores y salida estándar al mismo tiempo:
 
@@ -296,10 +296,6 @@ Por otro lado, GitHub es un servicio de alojamiento basado en la nube que facili
 
 ### Creación y clonación de un repositorio
 
-## Creación y Clonación de Repositorios en GitHub: Un Paso a Paso
-
-**Resumen:**
-
 El proceso de creación y clonación de un repositorio en GitHub se inicia desde el sitio web y luego se completa en la línea de comandos. Al iniciar sesión en GitHub, se utiliza la opción "Crear repositorio" para iniciar un nuevo proyecto. Se elige un nombre, una descripción y la visibilidad del repositorio (público o privado). Además, se puede inicializar el repositorio con archivos como README. Después de la creación, se presenta una URL que se utilizará para clonar el repositorio.
 
 Para clonar el repositorio en la máquina local, se copia la URL HTTPS y se utiliza el comando `git clone` en la línea de comandos. El proceso incluye la creación de un directorio local, la ejecución del comando de clonación y la verificación de la presencia del repositorio clonado en el sistema de archivos local. 
@@ -320,3 +316,241 @@ Este proceso proporciona a los desarrolladores una manera eficiente de crear y c
 - Se menciona que cada repositorio tiene una rama principal (main), conocida como la "línea principal", fundamental en el control de versiones.
 
 Al comprender estos pasos, los desarrolladores pueden iniciar y colaborar en proyectos utilizando GitHub de manera efectiva, estableciendo un flujo de trabajo sólido en el desarrollo de software.
+
+### ¿Cómo funciona Git?
+
+Git es un sistema de control de versiones distribuido que permite a los desarrolladores rastrear y gestionar cambios en sus proyectos de software de manera eficiente. Su funcionamiento se basa en un conjunto de principios y comandos que constituyen su flujo de trabajo. Aquí hay una descripción sobre cómo funciona Git:
+
+1. **Creación y Clonación de Repositorios:**
+   - Se inicia creando un repositorio local mediante el comando `git init` o clonando un repositorio existente con `git clone`.
+   - El repositorio local contiene tanto el directorio de trabajo como una carpeta oculta llamada `.git`, que almacena toda la información sobre el historial y las versiones del proyecto.
+
+2. **Áreas de Trabajo en Git:**
+   - **Directorio de Trabajo:** Es donde se encuentran y se editan los archivos del proyecto.
+   - **Área de Staging:** Los archivos modificados se colocan en esta área con `git add` para prepararlos para el siguiente commit.
+   - **Repositorio Local:** Después de hacer `git commit`, los archivos en el área de staging se guardan en el repositorio local con un mensaje descriptivo.
+
+3. **Ciclo de Vida de los Archivos:**
+   - **Modificado:** Archivo editado pero no marcado para commit.
+   - **Staging:** Archivo marcado para el próximo commit.
+   - **Comprometido:** Archivo guardado en la base de datos del repositorio.
+
+4. **Flujo de Trabajo Básico:**
+   - Se inicia un proyecto con `git init`.
+   - Los cambios se registran con `git add` para pasar al área de staging.
+   - Se confirman los cambios con `git commit`.
+   - Este proceso se repite a medida que se realizan modificaciones en el proyecto.
+
+5. **Gestión de Ramas:**
+   - Las ramas permiten trabajar en paralelo en funcionalidades o correcciones sin afectar la rama principal (normalmente llamada `main` o `master`).
+   - Se crea una nueva rama con `git branch` y se cambia con `git checkout` o `git switch`.
+   - Después de realizar cambios en una rama, se pueden fusionar con otras utilizando `git merge`.
+
+6. **Colaboración y Repositorios Remotos:**
+   - Repositorios remotos, como GitHub, actúan como puntos de colaboración.
+   - `git push` se utiliza para enviar cambios a un repositorio remoto.
+   - `git pull` permite obtener cambios de un repositorio remoto, manteniendo el proyecto actualizado.
+
+7. **Manejo de Conflictos:**
+   - Git facilita la resolución de conflictos cuando dos ramas contienen cambios en las mismas líneas de código.
+   - Se utilizan herramientas como `git diff` y `git merge` para resolver y fusionar cambios conflictivos.
+
+## Añadir y confirmar
+
+A continuación, se describe el proceso de trabajo con Git, centrándose en el manejo de archivos y confirmaciones en un repositorio local. Vamos a comenzar con la visualización del estado del directorio actual mediante el comando `pwd` que muestra la ubicación y `ls -la` para listar todos los elementos, incluyendo archivos ocultos. El comando `git status` se utiliza para obtener información sobre el estado del repositorio, destacando cambios no confirmados, la rama actual y la limpieza del árbol de trabajo.
+
+Posteriormente, se introduce la adición de un nuevo archivo, "test.txt", mediante el comando `touch test.txt`. Para incluir este archivo en la próxima confirmación, se utiliza `git add test.txt`. Se explica que este paso es crucial, ya que prepara los cambios en el área de staging antes de la confirmación.
+
+El texto aborda la gestión de cambios escalonados. Se muestra cómo revertir cambios escalonados usando `git restore --stage test.txt` y cómo realizar una confirmación con `git commit -m "Agrega un nuevo archivo para probarlo"`. Además, se destaca la importancia del área de staging para preparar cambios antes de confirmarlos.
+
+Finalmente, se menciona que los cambios locales se envían al servidor remoto con `git push`. Se subraya que esta acción es crucial en un entorno distribuido, donde los cambios en la máquina local solo se reflejarán en el servidor remoto después de ejecutar el comando `push`.
+
+A continuación, se muestra el código mencionado anteriormente:
+
+1. Visualización del directorio actual y listado de elementos:
+
+```bash
+# Comando para mostrar la ubicación actual
+pwd
+
+# Comando para listar todos los elementos, incluyendo los ocultos
+ls -la
+```
+
+2. Obtener información sobre el estado del repositorio:
+
+```bash
+# Comando para ver el estado del repositorio
+git status
+```
+
+3. Creación de un nuevo archivo "test.txt" y adición al área de staging:
+
+```bash
+# Comando para crear un nuevo archivo
+touch test.txt
+
+# Comando para añadir el archivo al área de staging
+git add test.txt
+```
+
+4. Revertir cambios escalonados:
+
+```bash
+# Comando para revertir cambios escalonados en un archivo
+git restore --stage test.txt
+```
+
+5. Realizar una confirmación:
+
+```bash
+# Comando para realizar una confirmación con mensaje
+git commit -m "Agrega un nuevo archivo para probarlo"
+```
+
+6. Enviar cambios locales al servidor remoto:
+
+```bash
+# Comando para enviar cambios locales al servidor remoto
+git push
+```
+
+### Ramas
+
+Se detallará el procedimiento para trabajar con ramas en Git. En primer lugar, se inicia con la verificación del directorio actual a través del comando `pwd`, seguido de la exploración de los elementos en el directorio mediante `ls -la`.
+
+Posteriormente, se recomienda ejecutar `git status` para asegurarse de que no hay confirmaciones pendientes y que el estado del shell está limpio. Este comando también informa sobre la rama actual y si está actualizada con la rama principal remota.
+
+Luego, se introduce la creación de una nueva rama denominada "feature/lesson-highlighted" con el comando `git checkout -b feature/lesson-highlighted` o alternativamente usando `git branch` y `git checkout` por separado. Se destaca que la diferencia clave entre estos enfoques radica en que `git checkout -B` no solo crea la rama sino que también mueve el usuario a esa rama recién creada.
+
+La acción siguiente implica la adición de un archivo llamado "test2.txt" a la nueva rama. Se emplean los comandos `touch test2.txt`, `git add test2.txt` para añadir el archivo al área de staging, y `git commit -m "Agrega un nuevo archivo test2.txt"` para confirmar los cambios.
+
+Para compartir estos cambios con el repositorio remoto, se ejecuta `git push -u origin feature/lesson-highlighted`, destacando la práctica de especificar `-u` para recibir actualizaciones de la rama principal.
+
+La solicitud de extracción se realiza en la interfaz de usuario de GitHub, donde se compara y solicita la extracción de los cambios en la rama creada con la rama principal.
+
+La fusión de ramas se efectúa en GitHub, seguida de la opción de eliminar o conservar la rama después de confirmar la fusión. Finalmente, se verifica la presencia de los cambios en la rama principal local mediante `git checkout main`, `git pull`, y la comprobación de los archivos con `ls`.
+
+Este flujo de trabajo detallado proporciona una comprensión completa de cómo trabajar con ramas en Git, desde la creación hasta la fusión, facilitando la colaboración y el desarrollo de software en equipo.
+
+A continuación, se presenta el código correspondiente a las acciones descritas en el texto:
+
+1. Verificar el directorio actual y explorar sus elementos:
+   
+```bash
+pwd
+ls -la
+```
+
+2. Comprobar el estado de Git:
+   
+```bash
+git status
+```
+
+3. Crear y cambiar a una nueva rama:
+   
+```bash
+git checkout -b feature/lesson-highlighted
+```
+O alternativamente:
+
+```bash
+git branch feature/lesson-highlighted
+git checkout feature/lesson-highlighted
+```
+
+4. Añadir un nuevo archivo y confirmar los cambios:
+   
+```bash
+touch test2.txt
+git add test2.txt
+git commit -m "Agrega un nuevo archivo test2.txt"
+```
+
+5. Compartir los cambios con el repositorio remoto:
+   
+```bash
+git push -u origin feature/lesson-highlighted
+```
+
+6. Realizar una solicitud de extracción en la interfaz de usuario de GitHub.
+
+7. Fusionar las ramas en GitHub y confirmar la fusión.
+
+8. Verificar la rama principal local y obtener los últimos cambios:
+   
+```bash
+git checkout main
+git pull
+```
+
+9. Verificar la presencia de los archivos en la rama principal:
+    
+```bash
+ls
+```
+
+Estos comandos representan el flujo de trabajo descrito en el texto para trabajar con ramas en Git.
+
+### Remoto frente a local
+
+En el contexto de Git, se refiere a la distinción entre los repositorios locales y remotos. Un repositorio local es la copia del proyecto que se encuentra en la máquina del usuario, mientras que un repositorio remoto es una versión del proyecto almacenada en un servidor, que puede ser accesible y compartida por varios desarrolladores.
+
+1. **Repositorio Local:**
+   - Es la copia del proyecto que reside en la máquina del usuario.
+   - Las operaciones como la creación de ramas, confirmación de cambios y experimentación se realizan localmente.
+   - Los cambios realizados en el repositorio local no afectan directamente al repositorio remoto.
+
+   Ejemplo de operaciones locales:
+   ```bash
+   git init  # Inicializar un nuevo repositorio local
+   git add <file>  # Añadir un archivo al área de preparación
+   git commit -m "Mensaje de confirmación"  # Confirmar cambios
+   ```
+
+2. **Repositorio Remoto:**
+   - Es una versión del proyecto almacenada en un servidor.
+   - Permite la colaboración entre varios desarrolladores, ya que todos trabajan con la misma versión remota.
+   - Cambios confirmados en el repositorio local se pueden enviar al repositorio remoto mediante comandos como `git push`.
+
+   Ejemplo de operaciones remotas:
+   ```bash
+   git remote add origin <URL>  # Asociar el repositorio local a un repositorio remoto
+   git push -u origin master  # Enviar cambios locales a la rama principal del repositorio remoto
+   ```
+
+**Importancia:**
+- La distinción entre local y remoto facilita el desarrollo colaborativo, ya que múltiples desarrolladores pueden trabajar en sus versiones locales y luego compartir y fusionar sus cambios en el repositorio remoto.
+- Los repositorios remotos permiten la sincronización y la centralización del código fuente, lo que es crucial para proyectos en los que varios desarrolladores contribuyen.
+
+### EMpujar y tirar
+
+**Empujar y Tirar en Git:**
+
+En el contexto de Git, "empujar" y "tirar" son operaciones fundamentales para sincronizar cambios entre un repositorio local y un repositorio remoto. Aquí se detalla cada uno de estos conceptos con ejemplos de códigos:
+
+1. **Empujar (Push):**
+   - **Definición:** Empujar se refiere a enviar los cambios confirmados desde el repositorio local al repositorio remoto, actualizando así la versión remota con las últimas modificaciones locales.
+   - **Ejemplo de Código:**
+     ```bash
+     git push origin main
+     ```
+     Este comando empuja los cambios de la rama local "main" al repositorio remoto llamado "origin".
+
+2. **Tirar (Pull):**
+   - **Definición:** Tirar se utiliza para obtener y aplicar los últimos cambios del repositorio remoto al repositorio local, asegurando que ambas versiones estén sincronizadas.
+   - **Ejemplo de Código:**
+     ```bash
+     git pull origin main
+     ```
+     Este comando tira los cambios de la rama remota "main" al repositorio local desde el repositorio remoto "origin".
+
+**Detalles Adicionales:**
+- Antes de realizar un push, es aconsejable ejecutar un pull para obtener los últimos cambios del repositorio remoto y reducir la posibilidad de conflictos.
+- El comando `git status` muestra información sobre la relación entre las ramas local y remota, indicando si hay cambios pendientes de empujar o si la rama local está adelante de la rama remota.
+
+**Importancia:**
+- Empujar y tirar son esenciales en un entorno colaborativo, donde varios desarrolladores trabajan en un proyecto. Facilitan la colaboración y aseguran que todos estén trabajando con la versión más reciente del código.
+- Git maneja automáticamente fusiones si no hay conflictos, simplificando el proceso de mantener actualizados tanto el repositorio local como el remoto.
+
