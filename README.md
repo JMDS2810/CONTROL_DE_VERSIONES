@@ -554,3 +554,133 @@ En el contexto de Git, "empujar" y "tirar" son operaciones fundamentales para si
 - Empujar y tirar son esenciales en un entorno colaborativo, donde varios desarrolladores trabajan en un proyecto. Facilitan la colaboración y aseguran que todos estén trabajando con la versión más reciente del código.
 - Git maneja automáticamente fusiones si no hay conflictos, simplificando el proceso de mantener actualizados tanto el repositorio local como el remoto.
 
+### Flujo de trabajo
+
+El flujo de trabajo es esencial en el desarrollo de software y se refiere a la secuencia de pasos que un desarrollador sigue para contribuir al proyecto de manera eficiente. Uno de los flujos de trabajo comunes es la "ramificación de características". En este enfoque, los desarrolladores crean ramas dedicadas para trabajar en funciones o características específicas sin afectar la rama principal hasta que estén listos para la fusión.
+
+**Ejemplos:**
+
+*Antes de crear una nueva rama:*
+```bash
+git pull  # Extraer el último código del repositorio remoto
+```
+
+*Crear una nueva rama:*
+```bash
+git checkout -b nombre-de-la-rama  # Crear y cambiar a una nueva rama
+```
+
+*Añadir y confirmar cambios en la rama de características:*
+```bash
+git add README.md  # Añadir un archivo (p. ej., README.md) al área de staging
+git commit -m "Agrega un nuevo archivo README.md"  # Confirmar los cambios con un mensaje descriptivo
+```
+
+*Empujar cambios al repositorio remoto:*
+```bash
+git push origin nombre-de-la-rama  # Empujar los cambios a la rama en el repositorio remoto
+```
+
+En conclusión, en el desarrollo de software, un flujo de trabajo eficiente es esencial para coordinar las contribuciones de múltiples desarrolladores. Uno de los enfoques comunes es la "ramificación de características". Este método implica la creación de ramas dedicadas para trabajar en funciones específicas sin afectar la rama principal. Para ilustrar, los desarrolladores siguen pasos como crear nuevas ramas, añadir y confirmar cambios localmente, y finalmente, empujar esos cambios al repositorio remoto. La solicitud de extracción y la fusión posterior permiten revisar y fusionar cambios de manera controlada. Este proceso facilita una colaboración armoniosa y un desarrollo continuo en proyectos de software.
+
+### Cabeza (Head)
+
+En Git, "head" es un puntero especial que indica el commit actual en el que se está trabajando. Se encuentra dentro de la carpeta ".git" y es esencial para comprender en qué estado se encuentra el repositorio en un momento dado.
+
+**Ejemplos:**
+
+*Ver la rama actual:*
+```bash
+git branch  # Muestra la rama actual
+```
+
+*Verificar el "head" para la rama principal:*
+```bash
+cat .git/refs/heads/main  # Muestra el hash ID del commit actual en la rama principal
+```
+
+*Cambiar a otra rama:*
+```bash
+git checkout nombre-de-la-rama  # Cambia a otra rama
+```
+
+*Verificar el "head" después de cambiar de rama:*
+```bash
+cat .git/refs/heads/nombre-de-la-rama  # Muestra el nuevo hash ID del commit actual
+```
+
+*Hacer un cambio y confirmarlo:*
+```bash
+# Hacer un cambio en el archivo README.md
+vim README.md  # Editar el archivo con el editor Vim
+git add README.md  # Añadir el archivo al área de staging
+git commit -m "Añadiendo una actualización menor"  # Confirmar los cambios
+```
+
+*Verificar el cambio en el "head":*
+```bash
+cat .git/refs/heads/main  # Muestra el nuevo hash ID después de la confirmación
+```
+
+En Git, "head" es un componente crucial que actúa como un puntero hacia el commit actual en el que se está trabajando. Este puntero se encuentra dentro de la carpeta ".git" y es fundamental para entender la posición y el estado del repositorio en un momento específico. Cambiar de rama altera la ubicación del "head", señalando al commit actual de la nueva rama.
+
+El proceso de cambio de "head" se ilustra mediante los ejemplos anteriores, desde la verificación de la rama actual hasta la confirmación de cambios en un archivo y cómo estos afectan al "head". La capacidad de entender y manipular el "head" es esencial para navegar eficientemente a través de diferentes ramas y commits en un proyecto Git. Esto no solo proporciona visibilidad sobre el estado actual del proyecto, sino que también permite cambios fluidos entre distintas ramas de desarrollo.
+
+### Comandos diff
+
+**Comando Diff en Git:**
+El comando `git diff` en Git es fundamental para comparar los cambios entre el área de trabajo (los archivos modificados pero no confirmados) y el último commit realizado. Proporciona una visión detallada de las modificaciones, facilitando la identificación de adiciones y eliminaciones.
+
+El `git diff` se presenta como una herramienta esencial en el arsenal de un desarrollador, facilitando la identificación de cambios, la revisión de historiales de commits y la comparación de ramas. Esta capacidad de análisis detallado ayuda a mantener un seguimiento efectivo de las actualizaciones en el código y a evitar posibles errores o conflictos. La comprensión de esta herramienta contribuye significativamente a un flujo de trabajo más eficiente y a un desarrollo de software más sólido.
+
+*Comando Diff en Git:*
+```bash
+git diff  # Compara los cambios entre el área de trabajo y el último commit
+```
+
+*Comparar cambios en un archivo:*
+```bash
+git diff nombre-del-archivo  # Compara los cambios en un archivo específico
+```
+
+*Comparar cambios entre commits:*
+```bash
+git log --oneline  # Muestra el historial de commits con códigos de identificación
+git diff código-commit1 código-commit2  # Compara los cambios entre dos commits
+```
+
+*Comparar cambios entre ramas:*
+```bash
+git branch  # Muestra las ramas disponibles
+git diff rama-principal rama-caracteristicas  # Compara los cambios entre dos ramas
+```
+
+En el desarrollo de software, revisar y entender los cambios realizados en el código es crucial. Se destaca el uso de `git diff` como una herramienta valiosa para esta tarea. Mientras `git status` informa sobre archivos modificados, `git diff` lleva la comparación a un nivel más detallado, mostrando específicamente qué líneas han sido añadidas o eliminadas.
+
+### Comando "git blame"
+
+El comando `git blame` es una herramienta esencial en Git que permite rastrear y mostrar el historial de cambios en archivos específicos. Facilita la identificación de quién hizo cada modificación, cuándo se realizó y el contenido exacto de los cambios en cada línea del archivo.
+
+En conclusión, `git blame` se presenta como una herramienta poderosa para supervisar y comprender la evolución del código fuente a lo largo del tiempo. Su capacidad para proporcionar detalles granulares sobre las contribuciones individuales y el historial de cambios facilita la gestión efectiva de proyectos de desarrollo de software. Integrar este comando en el flujo de trabajo brinda a los equipos de desarrollo una visión clara y detallada de la autoría del código, fomentando una colaboración eficiente y un mantenimiento efectivo del código base.
+
+**Comando blame en Git:**
+```bash
+git blame nombre-del-archivo  # Rastrea y muestra el historial de cambios en un archivo específico
+```
+
+**Ejemplos de Uso:**
+```bash
+git blame feature.js  # Muestra el historial de cambios en el archivo feature.js
+git blame -l 5,15 setup.py  # Muestra el historial de cambios desde la línea 5 hasta la línea 15 en setup.py
+git blame -l nombre-del-archivo  # Muestra detalles detallados, incluyendo el hash completo y dirección de correo electrónico
+git log -p hash-dash-ID  # Muestra el cambio real basado en un ID de commit específico obtenido de git blame
+```
+
+En el ámbito de la supervisión de equipos de desarrollo, es esencial contar con herramientas que faciliten el seguimiento y la comprensión de los cambios en el código fuente. El comando `git blame` se presenta como una solución valiosa para este propósito. Permite examinar el historial de cambios en un archivo específico, proporcionando información detallada sobre quién realizó cada modificación, cuándo se hizo y el contenido exacto de los cambios.
+
+Se introduce el uso básico de `git blame` utilizando el archivo `feature.js`. Se destaca que la salida de este comando muestra detalles clave, como el ID del commit, el autor, la marca de tiempo y el contenido modificado en cada línea del archivo. Además, se proporciona un ejemplo práctico utilizando el repositorio público MK docs, donde se utiliza `git blame` en el archivo `setup.py` para examinar contribuciones de diferentes desarrolladores a lo largo del tiempo.
+
+Se ofrece información sobre cómo limitar la salida de `git blame` a un rango específico de líneas y cómo personalizar el formato de visualización, incluyendo la opción de mostrar direcciones de correo electrónico. Además, se enfatiza la posibilidad de obtener detalles detallados de los cambios utilizando `git log -p` basado en el ID de commit obtenido de `git blame`.
+
+
+
