@@ -668,7 +668,7 @@ En conclusión, `git blame` se presenta como una herramienta poderosa para super
 git blame nombre-del-archivo  # Rastrea y muestra el historial de cambios en un archivo específico
 ```
 
-**Ejemplos de Uso:**
+**Ejemplos de uso:**
 ```bash
 git blame feature.js  # Muestra el historial de cambios en el archivo feature.js
 git blame -l 5,15 setup.py  # Muestra el historial de cambios desde la línea 5 hasta la línea 15 en setup.py
